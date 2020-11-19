@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+
+    </h1>
+<script>
+
+    //関数群
+    function tasu(a,b){
+        const t = a + b;
+        return t;
+    }
+
+    function hiku(c,d){
+        const h = c - d;
+        return h;
+    }
+
+    function kakeru(e,f){
+        const k = e * f;
+        return k;
+    }
+
+    function waru(g,h){
+        const w = g / h;
+        return w;
+    }
+
+    //実行群
+    const a = tasu(10,10);
+    const b = hiku(30,10);
+    const c = kakeru(10,2);
+    const d = waru(40,2);
+
+    const total = a + b + c + d;
+
+    document.querySelector("h1").innerHTML=total;
+
+    
+</script>    
+</body>
+</html>
