@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>kadai_canvas.html</title> 
+    <link rel="stylesheet" href="css/sample.css">
+</head>
+<body>
+
+<header>
+    <p id=>お絵描きクイズ</p>
+</header>
+
+<main>
+    <div id="box1">
+        <button id="start">お題</button>
+        <h1 id="echo"></h1>
+    </div>
+
+    <div id="box2">
+        <section>
+            <p id="canvas"></p>
+            
+            <nav>
+                <!-- 線の色を変更するカラーピッカーHTML要素[id="color"] -->
+                <input type="color" id="color" value="">
+                <!-- 線の太さを変更するスライダーHTML要素[id="range"] -->
+                <input type="range" id="size" min="1" max="100" value="50">
+                <button id="clear_btn">クリア</button>
+            </nav>
+            <canvas id="drowarea" width="500" height="500" style="border:1px solid rgb(51, 88, 253);"></canvas>
+        </section>
+    </div>
+
+    <div id="box3">
+        <button id="ans">正解はコチラ</button>
+        <h1 id="answer"></h1>
+    </div>
+</main>
+<footer>
+
+</footer>
+    
+
+
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+
+        //クリックイベント（スタートボタンを押したらお題表示→答え）
+        $("#start").on("click",function(){
+            const num = Math.ceil(Math.random()*30);
+
+            if(num==1){
+                $("#echo").html("スヌーピー");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="snoopy.png" width="160" height="240">');
+                });
+            }
+            if(num==2){
+                $("#echo").html("トトロ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="totoro.png" width="200" height="240">');
+                });
+            }
+            if(num==3){
+                $("#echo").html("カレーパンマン");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="curry.png" width="200" height="200">');
+                });
+            }
+            if(num==4){
+                $("#echo").html("ワカメちゃん");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="wakame.png" width="160" height="240">');
+                });
+            }
+            if(num==5){
+                $("#echo").html("ハム太郎");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="hamu.png" width="200" height="240">');
+                });
+            }
+            if(num==6){
+                $("#echo").html("トーマス");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="tomasu.png" width="240" height="240">');
+                });
+            }
+            if(num==7){
+                $("#echo").html("くまモン");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="kumamon.gif" width="210" height="240">');
+                });
+            }
+            if(num==8){
+                $("#echo").html("ピカチュウ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="pika.png" width="240" height="240">');
+                });
+            }
+            if(num==9){
+                $("#echo").html("スネ夫");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="suneo.png" width="200" height="240">');
+                });
+            }
+            if(num==10){
+                $("#echo").html("ペッパーくん");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="peppar.png" width="200" height="240">');
+                });
+            }
+            if(num==11){
+                $("#echo").html("おじゃる丸");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="ojyarumaru.gif" width="200" height="240">');
+                })
+            }
+            if(num==12){
+                $("#echo").html("コナン君");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="konan.png" width="160" height="240">');
+                })
+            }
+            if(num==13){
+                $("#echo").html("ジョージ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="jyoji.png" width="270" height="240">');
+                })
+            }
+            if(num==14){
+                $("#echo").html("悟空");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="gokuu.png" width="200" height="240">');
+                })
+            }
+            if(num==15){
+                $("#echo").html("タマ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="tama.png" width="200" height="240">');
+                })
+            }
+            if(num==16){
+                $("#echo").html("シロ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="shiro.png" width="270" height="240">');
+                })
+            }
+            if(num==17){
+                $("#echo").html("スーモ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="suumo.png" width="270" height="240">');
+                })
+            }
+            if(num==18){
+                $("#echo").html("オラフ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="orafu.gif" width="240" height="240">');
+                })
+            }
+            if(num==19){
+                $("#echo").html("ミニオン");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="minion.png" width="270" height="240">');
+                })
+            }
+            if(num==20){
+                $("#echo").html("マイメロ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="maimero.png" width="240" height="240">');
+                })
+            }
+            if(num==21){
+                $("#echo").html("スポンジボブ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="bob.png" width="220" height="240">');
+                })
+            }
+            if(num==22){
+                $("#echo").html("サザエさん");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="sazae.png" width="160" height="270">');
+                })
+            }
+            if(num==23){
+                $("#echo").html("カツオ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="katuo.png" width="160" height="240">');
+                })
+            }
+            if(num==24){
+                $("#echo").html("ジャイアン");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="jyaian.png" width="170" height="240">');
+                })
+            }
+            if(num==25){
+                $("#echo").html("のび太");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="nobi.png" width="160" height="240">');
+                })
+            }
+            if(num==26){
+                $("#echo").html("ミッキー");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="micky.png" width="240" height="240">');
+                })
+            }
+            if(num==27){
+                $("#echo").html("ミニー");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="minnie.png" width="220" height="240">');
+                })
+            }
+            if(num==28){
+                $("#echo").html("リラックマ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="kuma.png" width="240" height="240">');
+                })
+            }
+            if(num==29){
+                $("#echo").html("コアラのマーチ");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="koara.png" width="220" height="240">');
+                })
+            }
+            if(num==30){
+                $("#echo").html("エネゴリ君");
+                $("#ans").on("click", function(){
+                    $("#answer").html('<img src="enegori.gif" width="170" height="240">');
+                })
+            }
+        });
+
+       
+      
+
+
+        //初期化(変数letで宣言)
+        let canvas_mouse_event = false; //スイッチ [ true=線を引く, false=線は引かない ]  ＊＊＊
+        let oldX = 0; //１つ前の座標を代入するための変数
+        let oldY = 0; //１つ前の座標を代入するための変数
+        let bold_line = $("#size").on("change",function(){
+                            bold_line = $(this).val();
+                            $("#canvas").html(bold_line);
+                        }); 
+        //ラインの太さをここで指定[スライダー値をここに入れる]
+
+        let color = $("#color").on("change",function(){
+                        color = $(this).val();
+                        $("#canvas").html(color);
+                    });
+        //ラインの色をここで指定[カラーピッカー値をここに入れる]
+       
+        //------------------------------------------------
+        const can = $("#drowarea")[0]; //CanvasElement
+        const ctx = can.getContext("2d"); //描画するための準備！
+        //------------------------------------------------
+        $("#color").on("change",function(){
+            ctx.strokeStyle();
+        });
+
+       
+        //mousedown：フラグをTrue
+        //-----------------------------------------------
+        //oldX = e.offsetX;       //MOUSEDOWNしたX横座標取得
+        //oldY = e.offsetY; //MOUSEDOWN Y高さ座標取得
+        //canvas_mouse_event=true;
+        //-----------------------------------------------
+        //上5つのスクリプトを記述します。
+        $(can).on("mousedown",function(e){
+            oldX = e.offsetX;      
+            oldY = e.offsetY; 
+            canvas_mouse_event=true;
+        });
+
+
+        //mousemove：フラグがTrueだったら描く ※e：イベント引数取得
+        //----------------------------------------------
+        $(can).on("mousemove",function(e){
+            if(canvas_mouse_event==true){
+                const px = e.offsetX;
+                const py = e.offsetY;
+                ctx.strokeStyle = color;    //#ccc
+                ctx.lineWidth = bold_line;  //3
+                ctx.beginPath();            //初期化
+                ctx.lineJoin= "round";      //ペン先がマル使用
+                ctx.lineCap = "round";
+                ctx.moveTo(oldX, oldY);     //開始
+                ctx.lineTo(px, py);         //終了
+                ctx.stroke();               //線を描く
+                oldX = px;                  //新しい座標を古い座標に入れ替える
+                oldY = py;                  //新しい座標を古い座標に入れ替え
+            }
+
+            
+        }); 
+
+        //mouseup：フラグをfalse
+        //------------------------------------------------
+        //    canvas_mouse_event=false;
+        //------------------------------------------------
+        $(can).on("mouseup",function(){
+            canvas_mouse_event=false;
+        });
+
+        $(can).on("mouseout",function(){
+            canvas_mouse_event=false;
+        });
+
+        //#clear_btn：クリアーボタンAction
+        //-----------------------------------------------------------------
+        //    ctx.beginPath();
+        //    ctx.clearRect(0, 0, can.width, can.height);
+        //-----------------------------------------------------------------
+        $("#clear_btn").on("click",function(){
+            ctx.beginPath();
+            ctx.clearRect(0, 0, can.width, can.height);
+        });
+
+        
+    </script>
+</body>
+
+</html>
